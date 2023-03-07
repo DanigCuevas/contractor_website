@@ -1,0 +1,25 @@
+
+
+/****************************
+*  Font styles
+*****************************/
+body {
+    text-align: center;
+}
+
+h1{
+    font-family: 'Cormorant SC', serif;
+}
+
+/*Navigation bar*/
+.topNav {
+    background-color: Black;
+    overflow: Hidden;
+}
+.topNav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
