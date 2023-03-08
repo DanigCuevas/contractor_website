@@ -1,12 +1,12 @@
 # imports
 
-from google.cloud.sql.connector import Connector, IPTypes
+from google.cloud.sql.connector import Connector
 import pymysql
-from flask import Flask, request, make_response, render_template
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 # initializing Flask app
-website = Flask(__name__)
+app = Flask(__name__)
 
 
 # Google Cloud SQL 
@@ -17,8 +17,8 @@ PROJECT_ID ="cogent-jetty-379521"
 INSTANCE_NAME ="Contractor App"
 
 # website.config["SECRET_KEY"] = "yoursecretkey"
-website.config["SQLALCHEMY_DATABASE_URI"]= f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
-website.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
+app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
 # initialize Connector object
 connector = Connector()
@@ -34,9 +34,9 @@ def getconn() -> pymysql.connections.Connection:
     )
     return conn
 
-db = SQLAlchemy(website)
+db = SQLAlchemy(app)
 
-@website.route("/")
+@app.route("/")
 def viewCustomers():
     #query customers
     conn = getconn()
@@ -51,9 +51,13 @@ def viewCustomers():
 
 
 #function to render the home page
-@website.route('/')
+@app.route('/')
 def home():
    return render_template('home.html')
 
+@app.route("/login")
+def login():
+  return render_template("login.html")
+
 if __name__ == '__main__':
-   website.run(debug=True, port=8080)
+   app.run(debug=True, port=8080)

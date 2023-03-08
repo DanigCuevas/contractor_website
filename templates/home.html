@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name = "viewport" content="width=device-width,initial-scale=1" />
     <!---Linking js and css files-->
-    <link rel="stylesheet" href="/html/contractor.css">
-    <script src="/html/navigation.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contractor.css') }}">
+    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
 
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,18 +18,20 @@
     <h1>Contractor Connect</h1>
     <!--tool bar-->
     <div class="topNav">
-        <a id= "Home" href="home.html" onmouseover="makeGray(Home)" onmouseout="makeBlack(Home)">Home </a>
-        <a id= "Login" href="login.html" onmouseover="makeGray(Login)" onmouseout="makeBlack(Login)">Login</a>
-        <a id= "Jobs" href="job.html" onmouseover="makeGray(Jobs)" onmouseout="makeBlack(Jobs)">Jobs</a>
+        <a id= "Home" href= "{{ url_for('home') }}" onmouseover="makeGray(Home)" onmouseout="makeBlack(Home)">Home </a>
+        <a id= "Login" href="{{ url_for('login') }}" onmouseover="makeGray(Login)" onmouseout="makeBlack(Login)">Login</a>
+        <!-- <a id= "Jobs" href="job.html" onmouseover="makeGray(Jobs)" onmouseout="makeBlack(Jobs)">Jobs</a>
         <a id= "ContractorReviews" href="contractors.html" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>
-     </div>
-    <p>Jobs Avaliable</p>
-    <ul>
+     </div> -->
+    <p>Welocome to app</p>
+    <!-- <ul>
         {% for customer in customers %}
             <a href="#">
                 <h2>{{ customer['name'] }}</h2>
             </a>
-        {% endfor %}
-     </ul>
+        {% endfor %} -->
+     <!-- </ul> -->
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
