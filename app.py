@@ -67,14 +67,5 @@ def job():
 def contractorReviews():
   return render_template("contractorReviews.html")
 
-# @app.route('/test')
-# def test_route():
-#     user_details = {
-#         'name': 'John',
-#         'email': 'john@doe.com'
-#     }
-
-#     return render_template('home.html', user=user_details)
-#run application
 if __name__ == '__main__':
    app.run(debug=True, port=8080)
