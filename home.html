@@ -24,5 +24,12 @@
         <a id= "ContractorReviews" href="contractors.html" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>
      </div>
     <p>Jobs Avaliable</p>
+    {% for customer in customer %}
+        <a href="#">
+            <h2>{{ customer['id'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ customer['name'] }}</span>
+        <hr>
+    {% endfor %}
 </body>
 </html>
