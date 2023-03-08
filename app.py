@@ -14,12 +14,12 @@ PROJECT_ID ="cogent-jetty-379521"
 INSTANCE_NAME ="Contractor App"
 
 # website.config["SECRET_KEY"] = "yoursecretkey"
-website.config["SQLALCHEMY_DATABASE_URI"]= f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
+website.config["SQLALCHEMY_DATABASE_URI"]= f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
 website.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
 db = SQLAlchemy(website)
 
-@app.route('/')
+@website.route('/')
 def home():
    return render_template('home.html')
 if __name__ == '__main__':
