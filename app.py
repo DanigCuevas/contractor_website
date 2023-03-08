@@ -8,6 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 # initializing Flask app
 app = Flask(__name__)
 
+# initialize Connector object
+connector = Connector()
 
 # Google Cloud SQL 
 PASSWORD ="VMUV}?H%Zd9#YtLk"
@@ -20,8 +22,6 @@ INSTANCE_NAME ="Contractor App"
 app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
-# initialize Connector object
-connector = Connector()
 
 # function to return the database connection
 def getconn() -> pymysql.connections.Connection:
@@ -67,5 +67,14 @@ def job():
 def contractorReviews():
   return render_template("contractorReviews.html")
 
+# @app.route('/test')
+# def test_route():
+#     user_details = {
+#         'name': 'John',
+#         'email': 'john@doe.com'
+#     }
+
+#     return render_template('home.html', user=user_details)
+#run application
 if __name__ == '__main__':
    app.run(debug=True, port=8080)

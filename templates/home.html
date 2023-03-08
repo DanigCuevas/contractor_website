@@ -11,6 +11,37 @@
         {% block content %}
         <h1>Contractor App</h1>
         <p>Find contractors and jobs!</p>
-        {% endblock %}
+      
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %} 
+                    <tr>
+                        <td>{{customer[0]}}</td>
+                        <td>{{customer[1]}}</td>
+                        <td>{{customer[2]}}</td>
+                        <td>{{customer[3]}}</td>
+                    </tr>
+                {% endfor %}        
+            </tbody>
+        </table>
+        <!-- {% for customer in customers %}
+        <a href="#">
+            <h2>{{ customer['customer_ID'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ customer['customer_name'] }}</span>
+        <span class="phone">{{ customer['phone_number'] }}
+        <span class="email">{{ customer['email'] }}
+        <hr>
+        {% endfor %}
+
+        {% endblock %} -->
     </body>
 </html>
