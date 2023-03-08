@@ -48,8 +48,6 @@ def viewCustomers():
         conn.close()
         return render_template('home.html',customers=customers)
 
-
-
 #function to render the home page
 @app.route('/')
 def home():
