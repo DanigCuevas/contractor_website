@@ -53,4 +53,4 @@ def home():
    return render_template('home.html')
 
 if __name__ == '__main__':
-   website.run(port=8080)
+   website.run(debug=True, port=8080)
