@@ -59,5 +59,13 @@ def home():
 def login():
   return render_template("login.html")
 
+@app.route("/job")
+def job():
+  return render_template("job.html")
+
+@app.route("/contractorReviews")
+def contractorReviews():
+  return render_template("contractorReviews.html")
+
 if __name__ == '__main__':
    app.run(debug=True, port=8080)
