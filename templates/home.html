@@ -24,7 +24,7 @@
         <a id= "ContractorReviews" href="contractors.html" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>
      </div>
     <p>Jobs Avaliable</p>
-    {% for customer in customer %}
+    {% for customer in customers %}
         <a href="#">
             <h2>{{ customer['id'] }}</h2>
         </a>
