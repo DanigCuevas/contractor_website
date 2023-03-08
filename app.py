@@ -41,9 +41,12 @@ def viewCustomers():
     #query customers
     conn = getconn()
 
-    customers = conn.excute("SELECT * FROM CUSTOMER").fetchall()
-    conn.close()
-    return render_template('home.html',customers=customers)
+    with conn.cursor() as db_conn:
+        query = "SELECT * FROM CUSTOMER"
+        db_conn.execute(query)
+        customers = db_conn.fetchall()
+        conn.close()
+        return render_template('home.html',customers=customers)
 
 
 
