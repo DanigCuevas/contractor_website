@@ -15,21 +15,15 @@
     <title>Contractor Connect</title>
 </head>
 <body> 
-    <h1>Contractor Connect</h1>
+    <!-- <h1>Contractor Connect</h1> -->
     <!--tool bar-->
     <div class="topNav">
-        <a id= "Home" href= "{{ url_for('home') }}" onmouseover="makeGray(Home)" onmouseout="makeBlack(Home)">Home </a>
+        <img class = "logo" src = "{{url_for('static', filename='logo.png')}}" >
+        <a id= "Home" href= "{{ url_for('home') }}" onmouseover="makeGray(Home)" onmouseout="makeBlack(Home)">Contractor Connect </a>
         <a id= "Login" href="{{ url_for('login') }}" onmouseover="makeGray(Login)" onmouseout="makeBlack(Login)">Login</a>
         <a id= "Jobs" href="{{ url_for('job') }}" onmouseover="makeGray(Jobs)" onmouseout="makeBlack(Jobs)">Jobs</a>
         <a id= "ContractorReviews" href="{{ url_for('contractorReviews') }}" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>
      </div> 
-    <!-- <ul>
-        {% for customer in customers %}
-            <a href="#">
-                <h2>{{ customer['name'] }}</h2>
-            </a>
-        {% endfor %} -->
-     <!-- </ul> -->
     {% block content %}
     {% endblock %}
 </body>
