@@ -2,8 +2,8 @@
 runtime: python39
 
 #need to add for deploying
-# env_variables:
-#   CLOUD_SQL_USERNAME: YOUR-DB-USERNAME
-#   CLOUD_SQL_PASSWORD: VMUV}?H%Zd9#YtLk
-#   CLOUD_SQL_DATABASE_NAME: contractor-app
-#   CLOUD_SQL_CONNECTION_NAME: Contractor App
+env_variables:
+  CLOUD_SQL_USERNAME: ContractorApp
+  CLOUD_SQL_PASSWORD: VMUV}?H%Zd9#YtLk
+  CLOUD_SQL_DATABASE_NAME: contractor-app
+  CLOUD_SQL_CONNECTION_NAME: Contractor App
