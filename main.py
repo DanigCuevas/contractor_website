@@ -1,7 +1,7 @@
 # imports
 
-import pymysql
 import os
+import pymysql
 from flask import Flask, render_template,request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
@@ -33,6 +33,7 @@ def main():
         cnx = pymysql.connect(user=db_user, password=db_password,
                               host=host, db=db_name)
 
+    viewCustomer(cnx)
     # with cnx.cursor() as db_conn:
     #     query = "SELECT * FROM CUSTOMER"
     #     db_conn.execute(query)
