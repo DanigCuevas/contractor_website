@@ -33,12 +33,22 @@ def main():
         cnx = pymysql.connect(user=db_user, password=db_password,
                               host=host, db=db_name)
 
+    # with cnx.cursor() as db_conn:
+    #     query = "SELECT * FROM CUSTOMER"
+    #     db_conn.execute(query)
+    #     customers = db_conn.fetchall()
+    #     cnx.close()
+    #     return render_template('home.html',customers=customers)
+
+def viewCustomer(cnx):
     with cnx.cursor() as db_conn:
         query = "SELECT * FROM CUSTOMER"
         db_conn.execute(query)
         customers = db_conn.fetchall()
         cnx.close()
         return render_template('home.html',customers=customers)
+
+
 
 #function to render the home page
 @app.route('/')
