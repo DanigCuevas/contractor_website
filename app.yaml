@@ -5,4 +5,4 @@ env_variables:
   CLOUD_SQL_USERNAME: ContractorApp
   CLOUD_SQL_PASSWORD: VMUV}?H%Zd9#YtLk
   CLOUD_SQL_DATABASE_NAME: contractor-app
-  CLOUD_SQL_CONNECTION_NAME: Contractor App
+  CLOUD_SQL_CONNECTION_NAME: cogent-jetty-379521:us-central1:contractor-app

@@ -9,10 +9,21 @@
     <body> 
         {% extends "template.html" %}
         {% block content %}
-        <h1>Contractor App</h1>
+        <h1>Welcome!</h1>
         <p>Find contractors and jobs!</p>
-      
-        <table>
+        <div class="content">
+            {% for customer in customers %}
+                <div class="customer">
+                    <p><b>#{{customer[0]}}</b></p>
+                    <b>
+                        <p class="name">{{customer[1]}}</p>
+                    </b>
+                    <p>{{customer[2]}}</p>
+                    <p>{{customer[3]}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- <table>
             <thead>
             <tr>
                 <th>ID</th>
@@ -31,7 +42,7 @@
                     </tr>
                 {% endfor %}        
             </tbody>
-        </table>
+        </table> -->
         {% endblock %}
     </body>
 </html>
