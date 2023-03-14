@@ -9,8 +9,19 @@
     <body> 
         {% extends "template.html" %}
         {% block content %}
-        <h1>Jobs</h1>
-        <p>Jobs Avaliable</p>
+        <h1>Your Jobs</h1>
+        <!-- <p>Find contractors and jobs!</p> -->
+        <div class="content">
+            {% for job in jobs %}
+                <div class="customer">
+                    <p><b>#{{job[3]}}</b></p>
+                    <b>
+                        <p class="name">{{job[4]}}</p>
+                    </b>
+                    <p>{{job[5]}}</p>
+                </div>
+            {% endfor %}
+        </div>
         {% endblock %}
     </body>
 </html>
