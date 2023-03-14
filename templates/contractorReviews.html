@@ -9,8 +9,20 @@
     <body> 
         {% extends "template.html" %}
         {% block content %}
-        <h1>contractor</h1>
-        <p>Reviews</p>
+        <h1>Your Review</h1>
+        <h1>Your Jobs</h1>
+        <!-- <div class="content">
+            {% for review in reviews %}
+                <div class="entity">
+                    <p>Time:{{review[6]}}</p>
+                    <p>Date: {{review[5]}}</p>
+                    <div class="bio">
+                        <h4>Comment:</h4>
+                        <p>{{ review[4]}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> -->
         {% endblock %}
     </body>
 </html>

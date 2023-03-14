@@ -11,11 +11,16 @@ h1{
     font-family: 'Cormorant SC', serif;
 }
 
-/*Navigation bar*/
+/****************************
+* Navigation bar Design
+*****************************/
 .topNav {
     background-color: Black;
     overflow: Hidden;
 }
+/************************************
+* Formatting of logo image in Nav bar
+************************************/
 .logo {
     display: inline-block;
     width: 150px;
@@ -23,6 +28,9 @@ h1{
     float: left;
 }
 
+/************************************
+* Formatting of text in Nav bar
+************************************/
 .topNav a {
     float: right;
     color: white;
@@ -31,6 +39,9 @@ h1{
     text-decoration: none;
 }
 
+/****************************
+* Formatting of Contractor Info
+*****************************/
 .content {
     margin: 5px;
     width: 100%;
@@ -39,12 +50,19 @@ h1{
     flex-wrap: wrap;
 }
 
-.customer {
+.entity {
     flex: 20%;
     padding: 10px;
     margin: 5px;
     background-color: #f3f3f3;
     inline-size: 100%;
+}
+
+.bio {
+    padding: 10px;
+    margin: 5px;
+    background-color: #ffffff;
+    color: #004835;
 }
 
 .name a {

@@ -9,8 +9,19 @@
     <body> 
         {% extends "template.html" %}
         {% block content %}
-        <h1>Login</h1>
-        <p>Are you a contractor or customer?</p>
+        <h1>Your Account</h1>
+        <!-- formats and displays contractor information -->
+        <div class="content">
+            {% for customer in customers %}
+                <div class="entity">
+                    <b>
+                        <p class="name">{{customer[1]}}</p>
+                    </b>
+                    <p><b>Phone:{{customer[2]}}</b></p>
+                    <p>Email:{{customer[3]}}</p>
+                </div>
+            {% endfor %}
+        </div>
         {% endblock %}
     </body>
 </html>

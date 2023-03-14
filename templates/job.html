@@ -10,15 +10,14 @@
         {% extends "template.html" %}
         {% block content %}
         <h1>Your Jobs</h1>
-        <!-- <p>Find contractors and jobs!</p> -->
         <div class="content">
             {% for job in jobs %}
-                <div class="customer">
-                    <p><b>#{{job[3]}}</b></p>
+                <div class="entity">
+                    <p>Service:{{job[3]}}</b></p>
                     <b>
-                        <p class="name">{{job[4]}}</p>
+                        <p>Time:{{job[4]}}</p>
                     </b>
-                    <p>{{job[5]}}</p>
+                    <p>Date: {{job[5]}}</p>
                 </div>
             {% endfor %}
         </div>

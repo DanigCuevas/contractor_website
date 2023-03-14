@@ -9,40 +9,20 @@
     <body> 
         {% extends "template.html" %}
         {% block content %}
-        <h1>Welcome!</h1>
+        <h1>Contractors Near you</h1>
         <p>Find contractors and jobs!</p>
+        <!-- formats and displays contractor information -->
         <div class="content">
-            {% for customer in customers %}
-                <div class="customer">
-                    <p><b>#{{customer[0]}}</b></p>
+            {% for contractor in contractors %}
+                <div class="entity">
                     <b>
-                        <p class="name">{{customer[1]}}</p>
+                        <p class="name">{{contractor[1]}}</p>
                     </b>
-                    <p>{{customer[2]}}</p>
-                    <p>{{customer[3]}}</p>
+                    <p><b>Phone:{{contractor[2]}}</b></p>
+                    <p>Email:{{contractor[3]}}</p>
                 </div>
             {% endfor %}
         </div>
-        <!-- <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-            </tr>
-            </thead>
-            <tbody>
-                {% for customer in customers %} 
-                    <tr>
-                        <td>{{customer[0]}}</td>
-                        <td>{{customer[1]}}</td>
-                        <td>{{customer[2]}}</td>
-                        <td>{{customer[3]}}</td>
-                    </tr>
-                {% endfor %}        
-            </tbody>
-        </table> -->
         {% endblock %}
     </body>
 </html>
