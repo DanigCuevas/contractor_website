@@ -55,7 +55,8 @@ def home():
     #retrive database connection
     cnx = getConn() 
     #execute query
-    contactorQuery = "SELECT * FROM CONTRACTOR"
+    contactorQuery ="SELECT * FROM CONTRACTOR C\
+                    ORDER BY C.contractor_name"
     contractors = getQuery(cnx,contactorQuery)
     #close connection
     cnx.close ()
