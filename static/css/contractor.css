@@ -40,7 +40,7 @@ h1{
 }
 
 /****************************
-* Formatting of Contractor Info
+* Formatting of enties Info
 *****************************/
 .content {
     margin: 5px;
@@ -50,6 +50,9 @@ h1{
     flex-wrap: wrap;
 }
 
+/****************************
+* Formatting of entities style on page
+*****************************/
 .entity {
     flex: 20%;
     padding: 10px;
@@ -58,6 +61,9 @@ h1{
     inline-size: 100%;
 }
 
+/****************************
+* Creates a white box for a review
+*****************************/
 .bio {
     padding: 10px;
     margin: 5px;
