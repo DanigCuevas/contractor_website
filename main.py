@@ -62,7 +62,7 @@ def login():
   return render_template("login.html",customers=customers)
 
 #send job query to job page
-@app.route("/job") #Fixed! (the error was because MySQL is case sensitive)
+@app.route("/job") 
 def job():
     cnx = getConn()
     jobQuery = "SELECT J.service_type, C.customer_name, CON.contractor_name, J.job_time, J.job_date \
