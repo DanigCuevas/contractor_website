@@ -16,7 +16,7 @@
             {% for contractor in contractors %}
                 <div class="entity">
                     <b>
-                        <p class="name">{{contractor[1]}}</p>
+                        <a href="{{ url_for('contractorReviews',contractorID=contractor[0])}}" class="name">{{contractor[1]}}</a>
                     </b>
                     <p><b>Phone: {{contractor[2]}}</b></p>
                     <p>Email: {{contractor[3]}}</p>
@@ -28,7 +28,7 @@
 
     <script>
         function openContractorProfile(viewID, contractorID) {
-            
+            location.href={{ url_for('login') }}
         }
     </script>
 </html>

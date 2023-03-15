@@ -13,11 +13,12 @@
         <div class="content">
             {% for job in jobs %}
                 <div class="entity">
-                    <p>Service:{{job[3]}}</b></p>
                     <b>
-                        <p>Time:{{job[4]}}</p>
+                        <p>Contractor Name: {{job[2]}}</p>
                     </b>
-                    <p>Date: {{job[5]}}</p>
+                    <p>Service: {{job[0]}}</p>
+                    <p>Time: {{job[3]}}</p>
+                    <p>Date: {{job[4]}}</p>
                 </div>
             {% endfor %}
         </div>

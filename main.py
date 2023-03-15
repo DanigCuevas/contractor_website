@@ -71,29 +71,35 @@ def login():
   return render_template("login.html",customers=customers)
 
 #send job query to job page
-@app.route("/job") #THIS NEEDS TO BE FIXED
+@app.route("/job") #Fixed! (the error was because MySQL is case sensitive)
 def job():
     cnx = getConn()
-    jobQuery = "SELECT job.service_type, customer.customer_name, contractor.contractor_name, job.job_time, job.job_date\
-                FROM Job, Contractor, Customer \
-                WHERE customer.customer_ID = job.customer_ID \
-                AND contractor.contractor_ID = job.Contractor_ID\
-                AND job.service_type = landscaping AND customer.customer_id = 603753 "
-        #note serv_type should be landscaping  and cust_id should be 603753
+    jobQuery = "SELECT J.service_type, C.customer_name, CON.contractor_name, J.job_time, J.job_date \
+                FROM JOB J, CONTRACTOR CON, CUSTOMER C \
+                WHERE C.customer_ID = J.customer_ID \
+                AND CON.contractor_ID = J.contractor_ID \
+                AND J.service_type = \'landscaping\' AND C.customer_id = 603753"
+        #note serv_type should be landscaping and cust_id should be 603753
     # jobQuery = jobQuery.bindparams(serv_type="landscaping", cust_id=603753)
     jobs = getQuery(cnx,jobQuery)
-    cnx.close ()
+    cnx.close()
     return render_template("job.html",jobs=jobs)
 
-
 #you can create another html file for the sendsEnquiry & use that to show enquiry query 
-@app.route("/contractorReviews")
-def contractorReviews():
+@app.route("/contractorReviews/<contractorID>")
+def contractorReviews(contractorID):
+    cnx = getConn()
+
     #need to do this query
-    #SELECT customer_rates_contractor.score, customer_rates_contractor.rating_date, customer_rates_contractor.rating_time, Customer.customer_name, Contractor.contractor_name, customer_rates_contractor.rating_comment
-    #  FROM Customer, Contractor, Job, Customer_rates_contractor 
-    # WHERE customer.customer_ID = job.customer_ID AND job.contractor_ID = contractor.contractor_ID AND job.job_ID = customer_rates_contractor.job_ID and customer.customer_ID = '603753' AND  job.job_ID = '152697';
-  return render_template("contractorReviews.html")
+    reviewsQuery = \
+        f"SELECT R.score, R.rating_date, R.rating_time, C.customer_name, CON.contractor_name, R.rating_comment \
+        FROM CUSTOMER C, CONTRACTOR CON, JOB J, CUSTOMER_RATES_CONTRACTOR R \
+        WHERE C.customer_ID = J.customer_ID AND J.contractor_ID = CON.contractor_ID AND \
+        J.job_ID = R.job_ID and CON.contractor_ID = {contractorID};"
+
+    reviews = getQuery(cnx, reviewsQuery)
+    cnx.close()
+    return render_template("contractorReviews.html",reviews=reviews)
 
 # @app.route('/')
 # def main():
