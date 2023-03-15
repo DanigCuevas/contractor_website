@@ -19,7 +19,7 @@
     <!--tool bar-->
     <div class="topNav">
         <img class = "logo" src = "{{url_for('static', filename='logo.png')}}" >
-        <a id= "ContractorReviews" href="{{ url_for('contractorReviews') }}" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>
+    <!--<a id= "ContractorReviews" href="{{ url_for('contractorReviews', contractorID=899156) }}" onmouseover="makeGray(ContractorReviews)" onmouseout="makeBlack(ContractorReviews)">Contractor Reviews </a>-->
         <a id= "Login" href="{{ url_for('login') }}" onmouseover="makeGray(Login)" onmouseout="makeBlack(Login)">Login</a>
         <a id= "Jobs" href="{{ url_for('job') }}" onmouseover="makeGray(Jobs)" onmouseout="makeBlack(Jobs)">Jobs</a>
         <a id= "Home" href= "{{ url_for('home') }}" onmouseover="makeGray(Home)" onmouseout="makeBlack(Home)">Home </a>
